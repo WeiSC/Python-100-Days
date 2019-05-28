@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+### abc是抽象类不能被实例化，只能被继承
 from random import randint, randrange
 
 
@@ -6,7 +7,9 @@ class Fighter(object, metaclass=ABCMeta):
     """战斗者"""
 
     # 通过__slots__魔法限定对象可以绑定的成员变量
+    ### 即限制外部绑定其他变量
     __slots__ = ('_name', '_hp')
+    
 
     def __init__(self, name, hp):
         """初始化方法
@@ -54,6 +57,8 @@ class Ultraman(Fighter):
         :param hp: 生命值
         :param mp: 魔法值
         """
+
+        #钻石继承
         super().__init__(name, hp)
         self._mp = mp
 
